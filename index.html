@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Salary Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div id="phone" class="container">
+            <a class="hidden-xs" href="tel:+254701562812"><img
+                    src="https://www.payroll.ke/image/site/call-payroll-support.png" width="21" height="35" /></a><a
+                href="tel:+254701562812">+254 758510206</a>
+        </div>
+        <div class="container">
+            <div class="navbar-header navbar-default">
+                <a href="/"><img src="https://www.payroll.ke/image/site/payroll-logo.png" alt="payroll logo" width="168"
+                        height="90"></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <!-- <span class="sr-only">Toggle navigation</span> -->
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="container">
+                <div class="container container-fluid">
+                    <form class="row g-3">
+                        <div class="col-md-12">
+                            <h1 class="mb-4">NET PAY CALCULATOR</h1>
+                            <p>Enter the gross salary below amount to calculate your net amount</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="grossSalary" class="form-label"> (Ksh):</label>
+                            <input type="number" class="form-control" id="grossSalary" placeholder="Gross Salary">
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-primary mt-4" onclick="calculate()">Calculate</button>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table table-bordered mt-4">
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>Results</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Gross Salary</td>
+                                        <td><span id="displayGross"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Taxable Income</td>
+                                        <td><span id="displayTaxable"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>PAYE</td>
+                                        <td><span id="displayPAYE"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>NHIF</td>
+                                        <td><span id="displayNHIF"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>NSSF</td>
+                                        <td><span id="displayNSSF"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary mb-3">Confirm Identity</button>
+                        </div>
+                    </form>
+                </div>
+
+                <script>
+                    function calculate() {
+                        const grossSalary = parseFloat(document.getElementById('grossSalary').value);
+                        const nhifRates = {
+                            5999: 150, 7999: 300, 11999: 400, 14999: 500,
+                            19999: 600, 24999: 750, 29999: 850, 34999: 900,
+                            39999: 950, 44999: 1000, 49999: 1100, 59999: 1200,
+                            69999: 1300, 79999: 1400, 89999: 1500, 99000: 1600
+                        };
+
+                        const nssfRates = { tier1: 360, tier2: 720 };
+
+                        let nhif = 0;
+                        for (const rate in nhifRates) {
+                            if (grossSalary <= parseFloat(rate)) {
+                                nhif = nhifRates[rate];
+                                break;
+                            }
+                        }
+
+                        let nssf = grossSalary <= 18000 ? nssfRates.tier1 : nssfRates.tier2;
+
+                        let taxableIncome = grossSalary - nhif - nssf;
+
+                        const personalRelief = 2400;
+                        const minTaxableIncome = 24001;
+                        let paye = 0;
+
+                        if (taxableIncome >= minTaxableIncome) {
+                            if (taxableIncome <= 32000) {
+                                paye = (taxableIncome - minTaxableIncome) * 0.1;
+                            } else if (taxableIncome <= 40000) {
+                                paye = ((32000 - minTaxableIncome) * 0.1) + ((taxableIncome - 32000) * 0.25);
+                            } else {
+                                paye = ((32000 - minTaxableIncome) * 0.1) + (8000 * 0.25) + ((taxableIncome - 40000) * 0.3);
+                            }
+                        }
+
+                        document.getElementById('displayGross').textContent = grossSalary.toFixed(2);
+                        document.getElementById('displayTaxable').textContent = taxableIncome.toFixed(2);
+                        document.getElementById('displayPAYE').textContent = paye.toFixed(2);
+                        document.getElementById('displayNHIF').textContent = nhif.toFixed(2);
+                        document.getElementById('displayNSSF').textContent = nssf.toFixed(2);
+                    }
+                </script>
+            </div>
+
+</body>
+
+</html>
