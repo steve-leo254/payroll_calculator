@@ -277,14 +277,14 @@
                 }
                 let calcNetSalary = findNetsalary(calcGross, calcNHIF, calcNHDF, calcNSSF, calcPAYEE);
 
-                document.getElementById('displayGross').innerHTML = calcGross.toFixed(2);
-                document.getElementById('displayNHIF').innerHTML = calcNHIF.toFixed(2);
-                document.getElementById('displayNSSF').innerHTML = calcNSSF.toFixed(2);
-                document.getElementById('displayNHDF').innerHTML = calcNHDF.toFixed(2);
-                document.getElementById('displayTotalDeductions').innerHTML = calcTotalDeductions.toFixed(2);
-                document.getElementById('displayTaxable').innerHTML = calcTaxable_income.toFixed(2);
-                document.getElementById('displayPAYE').innerHTML = calcPAYEE.toFixed(2);
-                document.getElementById('displayNetSalary').innerHTML = calcNetSalary.toFixed(2);
+                document.getElementById('displayGross').textContent  = calcGross.toFixed(2);
+                document.getElementById('displayNHIF').textContent  = calcNHIF.toFixed(2);
+                document.getElementById('displayNSSF').textContent  = calcNSSF.toFixed(2);
+                document.getElementById('displayNHDF').textContent  = calcNHDF.toFixed(2);
+                document.getElementById('displayTotalDeductions').textContent  = calcTotalDeductions.toFixed(2);
+                document.getElementById('displayTaxable').textContent  = calcTaxable_income.toFixed(2);
+                document.getElementById('displayPAYE').textContent  = calcPAYEE.toFixed(2);
+                document.getElementById('displayNetSalary').textContent  = calcNetSalary.toFixed(2);
 
 
             </script>
