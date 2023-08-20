@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Salary Calculator</title>
+    <link rel="shortcut icon" href="https://www.payroll.ke/image/site/payroll-logo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
@@ -18,15 +19,17 @@
         </div>
         <div class="container">
             <div class="navbar-header navbar-default">
+                
                 <a href="/"><img src="https://www.payroll.ke/image/site/payroll-logo.png" alt="payroll logo" width="168"
                         height="90"></a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <!-- <span class="sr-only">Toggle navigation</span> -->
+                <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                </button> -->
             </div>
+
             <div class="container">
                 <div class="container container-fluid">
                     <form class="col-12">
@@ -35,16 +38,16 @@
                             <p>Enter the gross salary below amount to calculate your net amount</p>
                         </div>
                         <div class="col-12">
-                            <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+                            <label class="visually-hidden" for="inlineFormInputGroup">Username</label>
                             <div class="input-group">
                                 <div class="input-group-text">Ksh</div>
-                                <input type="text" class="form-control" id="grossSalary" placeholder="Ksh">
+                                <input type="text" class="form-control" id="basic_salary" placeholder="Ksh">
                             </div>
                             <div class="col-12">
                                 <button type="button" class="btn btn-primary mt-4"
                                     onclick="calculate()">Calculate</button>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <table class="table table-bordered mt-4">
                                     <thead>
                                         <tr>
@@ -55,11 +58,15 @@
                                     <tbody>
                                         <tr>
                                             <td>Gross Salary</td>
-                                            <td><span id="displayGross"></span></td>
+                                            <td><span id="displaybasic"></span></td>
                                         </tr>
                                         <tr>
                                             <td>NHIF</td>
                                             <td><span id="displayNHIF"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>House levy</td>
+                                            <td><span id="#"></span></td>
                                         </tr>
                                         <tr>
                                             <td>NSSF</td>
@@ -73,10 +80,10 @@
                                             <td>Final PAYE</td>
                                             <td><span id="displayPAYE"></span></td>
                                         </tr>
-                                        
+
                                         <tr>
                                             <td>Net Pay</td>
-                                            <td><span id="displayNetPay"></span></td>
+                                            <td><span id="displayNetsalary"></span></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -86,59 +93,144 @@
                 </div>
             </div>
             <script>
-                function calculate() {
-                    const grossSalary = parseFloat(document.getElementById('grossSalary').value);
-                    const nhifRates = {
-                        // NHIF rate tiers
-                    };
+                function find_gross_salary(basic_salary, benefits) {
+                    let gross_salary = basic_salary + benefits;
+                    return gross_salary;
+                }
+                function findHouseLevy(gross_salary, employeeLevyRate = 0.015, employerLevyRate = 0.015) {
+                    let employeeLevy = gross_salary * employeeLevyRate;
+                    let employerLevy = gross_salary * employerLevyRate;
+                    let totalLevy = employeeLevy + employerLevy;
+                    return totalLevy;
+                }
 
-                    const nssfRates = { tier1: 360, tier2: 720 };
+                // Inside the calculate() function
+                let calcHouseLevy = findHouseLevy(calcGross);
 
-                    // Calculate NHIF contribution
+
+                function find_NHIF(gross_salary) {
                     let nhif = 0;
-                    for (const rate in nhifRates) {
-                        if (grossSalary <= parseFloat(rate)) {
-                            nhif = nhifRates[rate];
-                            break;
-                        }
+                    if (gross_salary <= 5999) {
+                        nhif = 150;
+                    } else if (gross_salary >= 6000 && gross_salary <= 7999) {
+                        nhif = 300;
+                    } else if (gross_salary >= 8000 && gross_salary <= 11999) {
+                        nhif = 400;
+                    } else if (gross_salary >= 12000 && gross_salary <= 14999) {
+                        nhif = 500;
+                    } else if (gross_salary >= 15000 && gross_salary <= 19999) {
+                        nhif = 600;
+                    } else if (gross_salary >= 20000 && gross_salary <= 24999) {
+                        nhif = 750;
+                    } else if (gross_salary >= 25000 && gross_salary <= 29999) {
+                        nhif = 850;
+                    } else if (gross_salary >= 30000 && gross_salary <= 34999) {
+                        nhif = 900;
+                    } else if (gross_salary >= 35000 && gross_salary <= 39999) {
+                        nhif = 950;
+                    } else if (gross_salary >= 40000 && gross_salary <= 44999) {
+                        nhif = 1000;
+                    } else if (gross_salary >= 45000 && gross_salary <= 49999) {
+                        nhif = 1100;
+                    } else if (gross_salary >= 50000 && gross_salary <= 59999) {
+                        nhif = 1200;
+                    } else if (gross_salary >= 60000 && gross_salary <= 69999) {
+                        nhif = 1300;
+                    } else if (gross_salary >= 70000 && gross_salary <= 79999) {
+                        nhif = 1400;
+                    } else if (gross_salary >= 80000 && gross_salary <= 89999) {
+                        nhif = 1500;
+                    } else if (gross_salary >= 90000 && gross_salary <= 99999) {
+                        nhif = 1600;
+                    } else {
+                        nhif = 1700;
                     }
+                    return nhif;
+                }
 
-                    // Calculate NSSF contribution
-                    let nssf = grossSalary <= 18000 ? nssfRates.tier1 : nssfRates.tier2;
-
-                    // Calculate taxable income
-                    let taxableIncome = grossSalary - nhif - nssf;
-
-                    const personalRelief = 2400;
-                    const minTaxableIncome = 24001;
-                    let paye = 0;
-
-                    // Calculate PAYE
-                    if (taxableIncome >= minTaxableIncome) {
-                        if (taxableIncome <= 32000) {
-                            paye = (taxableIncome - minTaxableIncome) * 0.1;
-                        } else if (taxableIncome <= 40000) {
-                            paye = ((32000 - minTaxableIncome) * 0.1) + ((taxableIncome - 32000) * 0.25);
-                        } else {
-                            paye = ((32000 - minTaxableIncome) * 0.1) + (8000 * 0.25) + ((taxableIncome - 40000) * 0.3);
-                        }
+                function find_NSSF(gross_salary, rate = 0.06) {
+                    nssf = 0;
+                    if (gross_salary > 0 && gross_salary <= 18000) {
+                        nssf = gross_salary * rate;
+                    } else {
+                        nssf = 18000 * rate;
                     }
+                    return nssf;
+                }
 
-                    // Calculate net pay
-                    let netPay = grossSalary - paye - nhif - nssf;
+                function findNHDF(gross_salary, amount = 0.03) {
+                    let nhdf = gross_salary * amount;
+                    return nhdf;
+                }
 
-                    // Display calculated values in the HTML elements
-                    document.getElementById('displayGross').textContent = grossSalary.toFixed(2);
-                    document.getElementById('displayTaxable').textContent = taxableIncome.toFixed(2);
-                    document.getElementById('displayPAYE').textContent = paye.toFixed(2);
-                    document.getElementById('displayNHIF').textContent = nhif.toFixed(2);
-                    document.getElementById('displayNSSF').textContent = nssf.toFixed(2);
-                    document.getElementById('displayNetPay').textContent = netPay.toFixed(2);
+                function NSSF_NHDFtotal(nssf, nhdf) {
+                    let total = nssf + nhdf;
+                    return total;
+                }
+
+                function findtaxable_income(gross_salary, total) {
+                    let taxable_income = gross_salary - total;
+                    return taxable_income;
+                }
+
+                function findPAYEE(taxable_income, personal_relief = 2400) {
+                    netpayee = 0;
+                    if (taxable_income <= 24000) {
+                        grosspayee = 24000 * 0.1;
+                        netpayee = grosspayee - personal_relief;
+                    } else if (taxable_income <= 32333) {
+                        grosspayee = ((taxable_income - 24000) * 0.25) + 2400;
+                        netpayee = grosspayee - personal_relief;
+                    } else if (taxable_income <= 500000) {
+                        grosspayee = ((taxable_income - 32333) * 0.30) + 4483.25;
+                        netpayee = grosspayee - personal_relief;
+                    } else if (taxable_income > 500000) {
+                        grosspayee = ((taxable_income - 80000) * 0.35) + 4483.25;
+                        netpayee = grosspayee - personal_relief;
+                    } else {
+                        netpayee = 0;
+                    }
+                    return netpayee;
+                }
+
+                function findNetsalary(gross_salary, nhif, nhdf, nssf, netpayee) {
+                    let net_salary = gross_salary - (nhif + nhdf + nssf + netpayee);
+                    return net_salary;
+                }
+
+                function calculate() {
+                    // const basicSalary = Number(prompt('Enter your basic salary: '));
+                    // const benefits = Number(('Enter earned benefits (if any): '));
+
+                    let calcGross = find_gross_salary(basic_salary, benefits);
+                    let calcNHIF = find_NHIF(calcGross);
+                    let calcNSSF = find_NSSF(calcGross);
+                    let calcNHDF = findNHDF(calcGross);
+                    let calcTotal = NSSF_NHDFtotal(calcNSSF, calcNHDF);
+                    let calcTaxable_income = findtaxable_income(calcGross, calcTotal);
+                    let calcPAYEE = findPAYEE(calcTaxable_income);
+                    let calcNetsalary = findNetsalary(calcGross, calcNHIF, calcNHDF, calcNSSF, calcPAYEE);
+
+                    //  Display calculated values or perform other actions
+                    document.getElementById('displayGross').textContent = calcGross;
+                    document.getElementById('displaybasic').textContent = basic_salary.toFixed(2);
+                    document.getElementById('displayTaxable').textContent = calcTaxable_income.toFixed(2);
+                    document.getElementById('displayPAYE').textContent = calcPAYEE.toFixed(2);
+                    document.getElementById('displayNHIF').textContent = calcNHIF.toFixed(2);
+                    document.getElementById('displayNSSF').textContent = calcNSSF.toFixed(2);
+                    document.getElementById('displayNetsalary').textContent = calcNetsalary.toFixed(2);
+                    // console.log("Gross Salary:", calcGross);
+                    // console.log("NHIF:", calcNHIF);
+                    // console.log("NSSF:", calcNSSF);
+                    // console.log("NHDF:", calcNHDF);
+                    // console.log("Taxable Income:", calcTaxable_income);
+                    // console.log("PAYEE:", calcPAYEE);
+                    // console.log("Net Salary:", calcNetsalary);
                 }
 
 
             </script>
-
+    </div>
 
 </body>
 
