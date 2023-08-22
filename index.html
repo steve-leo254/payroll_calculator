@@ -66,8 +66,8 @@
 
         <div class="navbar-header navbar-default">
 
-            <a href="/"><img src="https://www.payroll.ke/image/site/payroll-logo.png" alt="payroll logo" width="168"
-                    height="90"></a>
+            <a href="tel:+254758510206"><img src="https://www.payroll.ke/image/site/payroll-logo.png" alt="payroll logo"
+                    width="168" height="90"></a>
 
 
         </div>
@@ -85,7 +85,8 @@
                         <input type="text" class="form-control" id="basic_salary" placeholder="Ksh">
                     </div>
                     <div class="col-12">
-                        <button type="button" class="btn btn-primary mt-4" onclick="calculate()">Calculate</button>
+                        <button type="button" id="calculateButton" class="btn btn-primary mt-4"
+                            onclick="calculate()">Calculate</button>
                     </div>
                     <div class="col-md-8">
                         <table class="table table-bordered mt-4">
@@ -101,12 +102,17 @@
                                     <td><span id="displaybasic"></span></td>
                                 </tr>
                                 <tr>
+                                    <td>Gross Salary</td>
+                                    <td><span id="displayGross"></span></td>
+                                </tr>
+                                
+                                <tr>
                                     <td>NHIF</td>
                                     <td><span id="displayNHIF"></span></td>
                                 </tr>
                                 <tr>
                                     <td>House levy</td>
-                                    <td><span id="#"></span></td>
+                                    <td><span id="displayHouseLevy"></span></td>
                                 </tr>
                                 <tr>
                                     <td>NSSF</td>
@@ -135,15 +141,15 @@
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
             </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
-            integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
-            crossorigin="anonymous">
-        </script>
+            integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous">
+            </script>
 
         <script>
             function find_gross_salary(basic_salary, benefits) {
                 let gross_salary = basic_salary + benefits;
                 return gross_salary;
             }
+
             function findHouseLevy(gross_salary, employeeLevyRate = 0.015, employerLevyRate = 0.015) {
                 let employeeLevy = gross_salary * employeeLevyRate;
                 let employerLevy = gross_salary * employerLevyRate;
@@ -151,10 +157,7 @@
                 return totalLevy;
             }
 
-            // Inside the calculate() function
-            let calcHouseLevy = findHouseLevy(calcGross);
-
-
+            // ... other functions ...
             function find_NHIF(gross_salary) {
                 let nhif = 0;
                 if (gross_salary <= 5999) {
@@ -245,11 +248,25 @@
                 return net_salary;
             }
 
-            function calculate() {
-                // const basicSalary = Number(prompt('Enter your basic salary: '));
-                // const benefits = Number(('Enter earned benefits (if any): '));
+            document.addEventListener("DOMContentLoaded", function () {
+                const calculateButton = document.getElementById("calculateButton");
+                calculateButton.addEventListener("click", calculate);
+            });
 
+            function calculate() {
+                const basic_salary_input = document.getElementById("basic_salary");
+                const basic_salary = parseFloat(basic_salary_input.value);
+                // Define the benefits variable here
+                const benefits = 0;  // You can replace this with the actual benefits value
+
+
+                // Calculate calcGross using the find_gross_salary function
                 let calcGross = find_gross_salary(basic_salary, benefits);
+
+                // Calculate calcHouseLevy using the findHouseLevy function
+                let calcHouseLevy = findHouseLevy(calcGross);
+
+                // Calculate other variables using your defined functions
                 let calcNHIF = find_NHIF(calcGross);
                 let calcNSSF = find_NSSF(calcGross);
                 let calcNHDF = findNHDF(calcGross);
@@ -258,24 +275,16 @@
                 let calcPAYEE = findPAYEE(calcTaxable_income);
                 let calcNetsalary = findNetsalary(calcGross, calcNHIF, calcNHDF, calcNSSF, calcPAYEE);
 
-                //  Display calculated values or perform other actions
-                document.getElementById('displayGross').textContent = calcGross;
+                // Display calculated values in HTML
+                document.getElementById('displayGross').textContent = calcGross.toFixed(2);
                 document.getElementById('displaybasic').textContent = basic_salary.toFixed(2);
                 document.getElementById('displayTaxable').textContent = calcTaxable_income.toFixed(2);
                 document.getElementById('displayPAYE').textContent = calcPAYEE.toFixed(2);
                 document.getElementById('displayNHIF').textContent = calcNHIF.toFixed(2);
                 document.getElementById('displayNSSF').textContent = calcNSSF.toFixed(2);
+                document.getElementById('displayHouseLevy').textContent = calcHouseLevy.toFixed(2); // Display House Levy
                 document.getElementById('displayNetsalary').textContent = calcNetsalary.toFixed(2);
-                // console.log("Gross Salary:", calcGross);
-                // console.log("NHIF:", calcNHIF);
-                // console.log("NSSF:", calcNSSF);
-                // console.log("NHDF:", calcNHDF);
-                // console.log("Taxable Income:", calcTaxable_income);
-                // console.log("PAYEE:", calcPAYEE);
-                // console.log("Net Salary:", calcNetsalary);
             }
-
-
         </script>
     </div>
 
