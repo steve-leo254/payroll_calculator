@@ -97,12 +97,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Gross Salary</td>
+                                <!-- <tr>
+                                    <td> Salary</td>
                                     <td><span id="displaybasic"></span></td>
-                                </tr>
+                                </tr> -->
                                 <tr>
-                                    <td>Gross Salary</td>
+                                    <td>Salary</td>
                                     <td><span id="displayGross"></span></td>
                                 </tr>
                                 
@@ -111,13 +111,14 @@
                                     <td><span id="displayNHIF"></span></td>
                                 </tr>
                                 <tr>
-                                    <td>House levy</td>
-                                    <td><span id="displayHouseLevy"></span></td>
-                                </tr>
-                                <tr>
                                     <td>NSSF</td>
                                     <td><span id="displayNSSF"></span></td>
                                 </tr>
+                                <tr>
+                                    <td>House levy</td>
+                                    <td><span id="displayHouseLevy"></span></td>
+                                </tr>
+                                
                                 <tr>
                                     <td>Taxable Income</td>
                                     <td><span id="displayTaxable"></span></td>
@@ -277,7 +278,7 @@
 
                 // Display calculated values in HTML
                 document.getElementById('displayGross').textContent = calcGross.toFixed(2);
-                document.getElementById('displaybasic').textContent = basic_salary.toFixed(2);
+                // document.getElementById('displaybasic').textContent = basic_salary.toFixed(2);
                 document.getElementById('displayTaxable').textContent = calcTaxable_income.toFixed(2);
                 document.getElementById('displayPAYE').textContent = calcPAYEE.toFixed(2);
                 document.getElementById('displayNHIF').textContent = calcNHIF.toFixed(2);
