@@ -13,7 +13,10 @@ function findHouseLevy(gross_salary, employeeLevyRate = 0.015, employerLevyRate 
 // ... other functions ...
 function find_NHIF(gross_salary) {
     let nhif = 0;
-    if (gross_salary <= 5999) {
+    if (gross_salary == 0) {
+        nhif = 0;
+    }
+    else if (gross_salary <= 5999) {
         nhif = 150;
     } else if (gross_salary >= 6000 && gross_salary <= 7999) {
         nhif = 300;
@@ -53,7 +56,7 @@ function find_NHIF(gross_salary) {
 
 function find_NSSF(gross_salary, rate = 0.06) {
     nssf = 0;
-    if (gross_salary > 0 && gross_salary <= 18000) {
+    if (gross_salary >=0 && gross_salary <= 18000) {
         nssf = gross_salary * rate;
     } else {
         nssf = 18000 * rate;
@@ -62,7 +65,12 @@ function find_NSSF(gross_salary, rate = 0.06) {
 }
 
 function findNHDF(gross_salary, amount = 0.03) {
-    let nhdf = gross_salary * amount;
+    // let nhdf = gross_salary * amount;
+    if(gross_salary <=83334 ){
+        nhdf = gross_salary * amount;
+    } else{
+        nhdf =2500;
+    }
     return nhdf;
 }
 
@@ -117,7 +125,7 @@ function calculate() {
     let calcGross = find_gross_salary(basic_salary, benefits);
 
     // Calculate calcHouseLevy using the findHouseLevy function
-    let calcHouseLevy = findHouseLevy(calcGross);
+    // let calcHouseLevy = findHouseLevy(calcGross);
 
     // Calculate other variables using your defined functions
     let calcNHIF = find_NHIF(calcGross);
@@ -135,6 +143,6 @@ function calculate() {
     document.getElementById('displayPAYE').textContent = calcPAYEE.toFixed(2);
     document.getElementById('displayNHIF').textContent = calcNHIF.toFixed(2);
     document.getElementById('displayNSSF').textContent = calcNSSF.toFixed(2);
-    document.getElementById('displayHouseLevy').textContent = calcHouseLevy.toFixed(2); // Display House Levy
+    document.getElementById('displaynhdf').textContent = calcNHDF.toFixed(2); // Display House Levy
     document.getElementById('displayNetsalary').textContent = calcNetsalary.toFixed(2);
 }
