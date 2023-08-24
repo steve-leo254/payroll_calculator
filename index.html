@@ -12,6 +12,22 @@
 </head>
 
 <body>
+    <style>
+        body {
+            background-image: url("https://as1.ftcdn.net/v2/jpg/05/00/23/38/1000_F_500233816_lmXEmmgJxKKQi6Dphq9hbam5W5jv0piD.jpg");
+            background-size: cover; /* Adjusts the image size to cover the entire background */
+            background-position: center; 
+            height: 100%;
+            width: 100%; 
+            margin: 0; /* Removes default body margin */
+            object-fit: cover;
+        
+
+        }
+        container-fluid{
+            background-color: aqua;
+        }
+    </style>
     <!-- <nav class="navbar bg-body-tertiary fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Offcanvas navbar</a>
@@ -56,15 +72,15 @@
             </div>
         </div>
     </nav> -->
-    <div class="container-fluid">
+    <div class="container-md">
         <div id="phone" class="subtle">
             <a class="hidden-xs" href="tel:+254758510206"><img
-                    src="https://www.payroll.ke/image/site/call-payroll-support.png" width="20" height="35" /></a><a
+                    src="https://www.payroll.ke/image/site/call-payroll-support.png" width="20" height="35"  /></a><a
                 href="tel:+254758510206">+254 758510206</a>
         </div>
 
 
-        <div class="navbar-header navbar-default">
+        <div class="nav">
 
             <a href="tel:+254758510206"><img src="https://www.payroll.ke/image/site/payroll-logo.png" alt="payroll logo"
                     width="168" height="90"></a>
@@ -72,10 +88,10 @@
 
         </div>
 
-        <div class="container-fluid">
+        <section class="container-fluid">
             <form class="col-12">
                 <div class="col-md-12">
-                    <h1 class="mb-4">NET PAY CALCULATOR</h1>
+                    <h1 class="mb-4" >NET PAY CALCULATOR</h1>
                     <p>Enter the gross salary below amount to calculate your net amount</p>
                 </div>
                 <div class="col-12">
@@ -84,6 +100,11 @@
                         <div class="input-group-text">Ksh</div>
                         <input type="number" class="form-control" id="basic_salary" placeholder="Ksh">
                     </div>
+                    <!-- <label class="visually-hidden" for="inlineFormInputGroup">Benefits</label>
+                    <div class="input-group">
+                        <div class="input-group-text">Benefits</div>
+                        <input type="number" class="form-control" id="benefits" placeholder="benefits">
+                    </div> -->
                     <div class="col-12">
                         <button type="button" id="calculateButton" class="btn btn-primary mt-4"
                             onclick="calculate()">Calculate</button>
@@ -137,7 +158,7 @@
                     </div>
                 </div>
             </form>
-        </div>
+        </section>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
             </script>
