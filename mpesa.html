@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mpesa Calculator</title>
+    <link rel="shortcut icon" href="https://www.payroll.ke/image/site/payroll-logo.png" type="image/x-icon">
+    <link href="main.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <style>
+        body {
+            /* background-image: url("https://as1.ftcdn.net/v2/jpg/05/00/23/38/1000_F_500233816_lmXEmmgJxKKQi6Dphq9hbam5W5jv0piD.jpg"); */
+            background-size: cover;
+            /* Adjusts the image size to cover the entire background */
+            background-position: center;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            /* Removes default body margin */
+            object-fit: cover;
+            background-color: rgb(133, 218, 133);
+
+
+        }
+
+        container-fluid {
+            background-color: aqua;
+        }
+    </style>
+
+    <div class="container-md">
+        <div id="phone" class="subtle">
+            <a class="hidden-xs" href="tel:+254758510206"><img
+                    src="https://www.payroll.ke/image/site/call-payroll-support.png" width="20" height="35" /></a><a
+                href="tel:+254758510206">+254 758510206</a>
+        </div>
+
+
+        <div class="nav">
+
+            <a href="tel:+254758510206"><img
+                    src="https://seeklogo.com/images/S/safaricom-twaweza-logo-A1C3B7B4B1-seeklogo.com.png"
+                    alt="Safaricom_Logo logo" width="168" height="90"></a>
+
+
+        </div>
+
+        <section class="container-fluid">
+            <form class="col-12">
+                <div class="col-md-12">
+                    <h1 class="header">M-PESA Cost Calculator</h1>
+                    <p>Enter Your Amount Below Amount To Calculate Your Charges</p>
+                </div>
+                <div class="col-12">
+                    <label class="visually-hidden" for="inlineFormInputGroup">Username</label>
+                    <div class="input-group">
+
+                        <input type="number" class="form-control" id="mpesa_amount" placeholder="Ksh"
+                            style="width: 125px;">
+                    </div>
+
+                    <div class="col-12">
+                        <button type="button" id="calculateButton" class="btn btn-primary mt-4"
+                            onclick="calculate()">Calculate</button>
+                    </div>
+                    <div class="col-md-8">
+                        <table class="table table-bordered mt-4">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Results</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>Transfer To M-PESA Users</td>
+                                    <td><span id="displayTransferToUsers"></span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Transfer To other Registered Mobile Money Users</td>
+                                    <td><span id="displayTransferToRegistered"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Send to other Unregistered</td>
+                                    <td><span id="displayTransferToUnregistered"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Withdraw at M-pesa Agent</td>
+                                    <td><span id="displayWithdrawalFromAgents"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>ATM Withdraw</td>
+                                    <td><span id="displayWithdrawalTariff"></span></td>
+                                </tr>
+
+                                <!-- <tr>
+                                    <td>Maximum ATM Withdraw</td>
+                                    <td><span id="displayTaxable"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Minimum Balance - Send to Mpesa</td>
+                                    <td><span id="displayPAYE"></span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Minimum Balance - Send to Unregistered</td>
+                                    <td><span id="displayNetsalary"></span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Amount + Withdrawal + Sending Charge to M-PESA</td>
+                                    <td><span id="displayNetsalary"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Amount + Withdrawal + Sending Charge to Unregistered</td>
+                                    <td><span id="displayNetsalary"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Amount + Withdrawal Charge</td>
+                                    <td><span id="displayNetsalary"></span></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </form>
+        </section><br>
+    </div>
+
+    <hr>
+    <div class="vertical"></div>
+    <hr class="hr1">
+
+
+    <section>
+        <br>
+
+        <div class="container">
+            <h3>M-PESA Charges</h3>
+            <p>These are charges that a customer incurs depending on the amount of transaction and the transaction type
+                i.e. sending or withdrawing.</p>
+            <p>Below are Mpesa Tarriffs</p>
+            <table class="table table-bordered border-secondary">
+                <tr>
+                    <th>Min</th>
+                    <th>Max</th>
+                    <th>Send To M-PESA/POCHI</th>
+                    <th>Send To Other Networks</th>
+                    <th>Send To Unregistered</th>
+                    <th>Withdraw at Agent</th>
+                </tr>
+                <tr>
+                    <td>Ksh1</td>
+                    <td>Ksh49</td>
+                    <td>FREE</td>
+                    <td>FREE</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Ksh50</td>
+                    <td>Ksh100</td>
+                    <td>FREE</td>
+                    <td>FREE</td>
+                    <td>N/A</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>Ksh101</td>
+                    <td>Ksh500</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>47</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td>Ksh501</td>
+                    <td>Ksh1000</td>
+                    <td>13</td>
+                    <td>13</td>
+                    <td>51</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td>Ksh1001</td>
+                    <td>Ksh1500</td>
+                    <td>23</td>
+                    <td>23</td>
+                    <td>61</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td>Ksh1501</td>
+                    <td>Ksh2500</td>
+                    <td>33</td>
+                    <td>33</td>
+                    <td>76</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td>Ksh2501</td>
+                    <td>Ksh3500</td>
+                    <td>53</td>
+                    <td>53</td>
+                    <td>115</td>
+                    <td>52</td>
+                </tr>
+                <tr>
+                    <td>Ksh35001</td>
+                    <td>Ksh5000</td>
+                    <td>57</td>
+                    <td>57</td>
+                    <td>139</td>
+                    <td>69</td>
+                </tr>
+                <tr>
+                    <td>Ksh5001</td>
+                    <td>Ksh7500</td>
+                    <td>78</td>
+                    <td>78</td>
+                    <td>171</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td>Ksh7501</td>
+                    <td>Ksh10000</td>
+                    <td>90</td>
+                    <td>90</td>
+                    <td>211</td>
+                    <td>115</td>
+                </tr>
+                <tr>
+                    <td>Ksh10001</td>
+                    <td>Ksh15000</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td>273</td>
+                    <td>167</td>
+                </tr>
+                <tr>
+                    <td>Ksh15001</td>
+                    <td>Ksh20000</td>
+                    <td>105</td>
+                    <td>105</td>
+                    <td>296</td>
+                    <td>185</td>
+                </tr>
+
+                <tr>
+                    <td>Ksh20001</td>
+                    <td>Ksh35000</td>
+                    <td>108</td>
+                    <td>108</td>
+                    <td>318</td>
+                    <td>197</td>
+                </tr>
+                <tr>
+                    <td>Ksh35001</td>
+                    <td>Ksh50000</td>
+                    <td>108</td>
+                    <td>108</td>
+                    <td>318</td>
+                    <td>278</td>
+                </tr>
+                <tr>
+                    <td>Ksh50001</td>
+                    <td>Ksh150000</td>
+                    <td>108</td>
+                    <td>108</td>
+                    <td>318</td>
+                    <td>309</td>
+                </tr>
+            </table>
+    </section><br>
+    <hr>
+    <div class="vertical"></div>
+    <hr class="hr1">
+    <section class="card-text">
+
+        <table border="1" cellpadding="5" cellspacing="5">
+            <caption>ATM Withdrawal Tariff</caption>
+            <tr>
+                <th>Min</th>
+                <th>Max</th>
+                <th>New</th>
+            </tr>
+            <tr>
+                <td>200</td>
+                <td>2500</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>2501</td>
+                <td>5000</td>
+                <td>69</td>
+            </tr>
+            <tr>
+                <td>5001</td>
+                <td>10000</td>
+                <td>115</td>
+            </tr>
+            <tr>
+                <td>10001</td>
+                <td>25000</td>
+                <td>203</td>
+            </tr>
+        </table>
+
+    </section>
+    <hr>
+    <div class="vertical"></div>
+    <hr class="hr1">
+    <section class="bottom-text">
+        <h1>Note:</h1>
+        <li>1.Maximum Account Balance is Kshs.500,000</li>
+        <li>2.Maximum daily transaction value is Kshs.500,000</li>
+        <li>3.Maximum amount per transaction is Kshs.150,000</li>
+        <li>4.The minimum amount you can withdraw at an M-PESA Agent is Kshs.50</li>
+        <li>5.To initiate M-PESA person to person self-reversal, send the transaction confirmation to 456</li>
+        <li>6.To be able to transact, your Safaricom line and M-PESA account must be active.</li>
+        <li>7.One can deposit funds only into M-PESA account registered under their own identification document (ID).
+            Depositing directly into third party accounts is not allowed.</li>
+        <li>8.You will earn Bonga Points from the M-PESA fee charged when you transact.</li>
+        <li>9.To transact at any M-PESA agent outlet, you will be required to produce your original identification
+            document with which the M-PESA was registered, i.e., National ID or Kenyan Passport</li>
+        <li>10.Dial *334# to view application charges or use M-PESA cost calculator on My Safaricom App</li>
+
+    </section>
+    <div class="vertical"></div>
+    <hr class="hr1">
+
+    <style>
+        .app-store-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .app-store-button {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            text-align: center;
+            color: #211010;
+            text-decoration: none;
+        }
+
+        .google-play {
+            background-color: #7acd7d;
+            /* Green color */
+        }
+
+        .apple-app-store {
+            background-color: #8fc89f;
+            /* Black color */
+        }
+    </style>
+    <section class="footer" style="background-color: chartreuse;">
+        <div class="app-store-buttons">
+            <a class="app-store-button google-play"
+                href="https://play.google.com/store/apps/details?id=com.safaricom.mysafaricom&hl=en&gl=US"
+                target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+                    <path
+                        d="M 7.125 2 L 28.78125 23.5 L 34.71875 17.5625 L 8.46875 2.40625 C 8.03125 2.152344 7.5625 2.011719 7.125 2 Z M 5.3125 3 C 5.117188 3.347656 5 3.757813 5 4.21875 L 5 46 C 5 46.335938 5.070313 46.636719 5.1875 46.90625 L 27.34375 24.90625 Z M 36.53125 18.59375 L 30.1875 24.90625 L 36.53125 31.1875 L 44.28125 26.75 C 45.382813 26.113281 45.539063 25.304688 45.53125 24.875 C 45.519531 24.164063 45.070313 23.5 44.3125 23.09375 C 43.652344 22.738281 38.75 19.882813 36.53125 18.59375 Z M 28.78125 26.3125 L 6.9375 47.96875 C 7.300781 47.949219 7.695313 47.871094 8.0625 47.65625 C 8.917969 47.160156 26.21875 37.15625 26.21875 37.15625 L 34.75 32.25 Z">
+                    </path>
+                </svg>
+                Available on Google Play
+            </a>
+            <a class="app-store-button apple-app-store"
+                href="https://apps.apple.com/ke/app/mysafaricom-app/id1481438147" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+                    <path
+                        d="M 44.527344 34.75 C 43.449219 37.144531 42.929688 38.214844 41.542969 40.328125 C 39.601563 43.28125 36.863281 46.96875 33.480469 46.992188 C 30.46875 47.019531 29.691406 45.027344 25.601563 45.0625 C 21.515625 45.082031 20.664063 47.03125 17.648438 47 C 14.261719 46.96875 11.671875 43.648438 9.730469 40.699219 C 4.300781 32.429688 3.726563 22.734375 7.082031 17.578125 C 9.457031 13.921875 13.210938 11.773438 16.738281 11.773438 C 20.332031 11.773438 22.589844 13.746094 25.558594 13.746094 C 28.441406 13.746094 30.195313 11.769531 34.351563 11.769531 C 37.492188 11.769531 40.8125 13.480469 43.1875 16.433594 C 35.421875 20.691406 36.683594 31.78125 44.527344 34.75 Z M 31.195313 8.46875 C 32.707031 6.527344 33.855469 3.789063 33.4375 1 C 30.972656 1.167969 28.089844 2.742188 26.40625 4.78125 C 24.878906 6.640625 23.613281 9.398438 24.105469 12.066406 C 26.796875 12.152344 29.582031 10.546875 31.195313 8.46875 Z">
+                    </path>
+                </svg>
+                Available on the App Store
+            </a>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous">
+        </script>
+
+    <script src="mpesa.js"></script>
+
+
+
+</body>
+
+</html>
