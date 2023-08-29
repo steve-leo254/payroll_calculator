@@ -9,7 +9,7 @@ const mpesaTariffs = [
     { min: 1001, max: 1500, transferToUsers: "23", transferToOtherNetworks: "23", transferToUnregisteredUsers: "61", withdrawalFromAgents: 29 },
     { min: 1501, max: 2500, transferToUsers: "33", transferToOtherNetworks: "33", transferToUnregisteredUsers: "76", withdrawalFromAgents: 29 },
     { min: 2501, max: 3500, transferToUsers: "53", transferToOtherNetworks: "53", transferToUnregisteredUsers: "115", withdrawalFromAgents: 52 },
-    { min: 35001, max: 5000, transferToUsers: "57", transferToOtherNetworks: "57", transferToUnregisteredUsers: "139", withdrawalFromAgents: 69 },
+    { min: 3501, max: 5000, transferToUsers: "57", transferToOtherNetworks: "57", transferToUnregisteredUsers: "139", withdrawalFromAgents: 69 },
     { min: 5001, max: 7500, transferToUsers: "78", transferToOtherNetworks: "78", transferToUnregisteredUsers: "171", withdrawalFromAgents: 87 },
     { min: 7501, max: 10000, transferToUsers: "90", transferToOtherNetworks: "90", transferToUnregisteredUsers: "211", withdrawalFromAgents: 115 },
     { min: 10001, max: 15000, transferToUsers: "100", transferToOtherNetworks: "100", transferToUnregisteredUsers: "273", withdrawalFromAgents: 167 },
@@ -26,7 +26,7 @@ const mpesaatmwithdrawaltrariff = [
     { min: 2501, max: 5000, new: "69" },
     { min: 5001, max: 10001, new: "115" },
     { min: 10001, max: 35000, new: "203" },
-    { min: 35001, max: 500000, new: "not possible " },
+    { min: 35001, max: 500000, new: "try lower amount " },
 ];
 
 // Function to find M-PESA tariff based on the amount

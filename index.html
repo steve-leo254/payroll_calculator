@@ -15,24 +15,27 @@
     <style>
         body {
             background-image: url("https://as1.ftcdn.net/v2/jpg/05/00/23/38/1000_F_500233816_lmXEmmgJxKKQi6Dphq9hbam5W5jv0piD.jpg");
-            background-size: cover; /* Adjusts the image size to cover the entire background */
-            background-position: center; 
+            background-size: cover;
+            /* Adjusts the image size to cover the entire background */
+            background-position: center;
             height: 100%;
-            width: 100%; 
-            margin: 0; /* Removes default body margin */
+            width: 100%;
+            margin: 0;
+            /* Removes default body margin */
             object-fit: cover;
-        
+
 
         }
-        container-fluid{
+
+        container-fluid {
             background-color: aqua;
         }
     </style>
-    
+
     <div class="container-md">
         <div id="phone" class="subtle">
             <a class="hidden-xs" href="tel:+254758510206"><img
-                    src="https://www.payroll.ke/image/site/call-payroll-support.png" width="20" height="35"  /></a><a
+                    src="https://www.payroll.ke/image/site/call-payroll-support.png" width="20" height="35" /></a><a
                 href="tel:+254758510206">+254 758510206</a>
         </div>
 
@@ -48,14 +51,15 @@
         <section class="container-fluid">
             <form class="col-12">
                 <div class="col-md-12">
-                    <h1 class="mb-4" >NET PAY CALCULATOR</h1>
+                    <h1 class="mb-4">NET PAY CALCULATOR</h1>
                     <p>Enter the gross salary below amount to calculate your net amount</p>
                 </div>
                 <div class="col-12">
                     <label class="visually-hidden" for="inlineFormInputGroup">Username</label>
                     <div class="input-group">
                         <!-- <div class="input-group-text">Ksh</div> -->
-                        <input type="number" class="form-control" id="basic_salary" placeholder="Ksh" style="width: 125px;">
+                        <input type="number" class="form-control" id="basic_salary" placeholder="Ksh"
+                            style="width: 125px;">
                     </div>
                     <!-- <label class="visually-hidden" for="inlineFormInputGroup">Benefits</label>
                     <div class="input-group">
@@ -83,7 +87,7 @@
                                     <td>Salary</td>
                                     <td><span id="displayGross"></span></td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td>NHIF</td>
                                     <td><span id="displayNHIF"></span></td>
@@ -96,7 +100,7 @@
                                     <td>House levy</td>
                                     <td><span id="displaynhdf"></span></td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td>Taxable Income</td>
                                     <td><span id="displayTaxable"></span></td>
@@ -126,28 +130,29 @@
         <script src="script.js"></script>
     </div>
     <section>
-        <nav class="navbar  fixed-bottom">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/About.html">About </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/mpesa.html">Mpesa</a>
-                        </li>
-                        <!-- <li class="nav-item dropdown">
+        <nav class="navbar fixed-bottom" style="color: black;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MORE</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/mpesa.html">Mpesa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/About.html">About </a>
+                            </li>
+
+                            <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Dropdown
@@ -161,15 +166,15 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li> -->
-                    </ul>
-                    <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                        </ul>
+                        <form class="d-flex mt-3" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
     </section>
 
 </body>
