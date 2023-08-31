@@ -4,7 +4,9 @@ body {
     margin-top: 141px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
     text-transform: uppercase;
 }
@@ -55,10 +57,10 @@ h2 {
     margin-bottom: 1em;
 }
 
-.navbar-default .navbar-nav > li > a,
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:focus,
-.navbar-default .navbar-nav > .active > a:hover {
+.navbar-default .navbar-nav>li>a,
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
     color: black;
     font-weight: bold;
 }
@@ -115,14 +117,14 @@ h2 {
 }
 
 .blog a {
-    color: #464646; 
+    color: #464646;
 }
 
 .circle h3,
 .blog h3,
 .orange,
 .orange:hover,
-.navbar-nav > li > a.orange {
+.navbar-nav>li>a.orange {
     color: #f19337;
 }
 
@@ -137,7 +139,7 @@ h2 {
     padding: 40px 6em;
 }
 
-.clients > div > .row {
+.clients>div>.row {
     margin-top: 8em;
     padding-bottom: 40px;
 }
@@ -145,6 +147,7 @@ h2 {
 .clients hr {
     margin: 1em 0;
 }
+
 .clients .row h3 {
     text-transform: none;
     margin-top: .5em;
@@ -156,7 +159,8 @@ h2 {
     padding: 0 2em 2em 2em;
     margin-top: 1em;
 }
-.clients .client ~ .client {
+
+.clients .client~.client {
     margin-top: 9em;
 }
 
@@ -267,106 +271,119 @@ h2 {
 
 .bg-compliance {
     margin: auto;
-    width: 120px; height: 120px;
+    width: 120px;
+    height: 120px;
     background: url('/image/site/Payroll-features.webp') -10px -160px;
 }
 
 .bg-error {
     margin: auto;
-    width: 116px; height: 116px;
+    width: 116px;
+    height: 116px;
     background: url('/image/site/Payroll-features.webp') -347px -10px;
 }
 
 .bg-management {
     margin: auto;
-    width: 146px; height: 130px;
+    width: 146px;
+    height: 130px;
     background: url('/image/site/Payroll-features.webp') -10px -10px;
 }
 
 .bg-portal {
     margin: auto;
-    width: 68px; height: 130px;
+    width: 68px;
+    height: 130px;
     background: url('/image/site/Payroll-features.webp') -347px -146px;
 }
 
 .bg-submission {
     margin: auto;
-    width: 116px; height: 119px;
+    width: 116px;
+    height: 119px;
     background: url('/image/site/Payroll-features.webp') -150px -160px;
 }
 
 .bg-support {
     margin: auto;
-    width: 151px; height: 124px;
+    width: 151px;
+    height: 124px;
     background: url('/image/site/Payroll-features.webp') -176px -10px;
 }
 
 .bg-social_fb {
     display: inline-block;
-    width: 69px; height: 69px;
+    width: 69px;
+    height: 69px;
     background: url('/image/site/Payroll-social.png') -101px -10px;
 }
 
 .bg-social_twitter {
     display: inline-block;
-    width: 71px; height: 71px;
+    width: 71px;
+    height: 71px;
     background: url('/image/site/Payroll-social.png') -10px -10px;
 }
 
-@media screen and (min-width: 768px) 
-{
-    .container .jumbotron, .container-fluid .jumbotron {
+@media screen and (min-width: 768px) {
+
+    .container .jumbotron,
+    .container-fluid .jumbotron {
         padding: 100px 60px 100px 220px;
         text-align: center;
     }
 
     .nav {
-	font-size: 13px;
+        font-size: 13px;
     }
-    
+
     .navbar-header img {
         margin: 20px 0 30px 0;
     }
-    
-    .navbar-nav, .navbar-toggle {
+
+    .navbar-nav,
+    .navbar-toggle {
         margin-top: 72px;
     }
 
-    .nav > li > a {
-	padding: 10px 10px;
+    .nav>li>a {
+        padding: 10px 10px;
     }
 }
 
-@media screen and (min-width: 992px)
-{
-    .container .jumbotron, .container-fluid .jumbotron {
+@media screen and (min-width: 992px) {
+
+    .container .jumbotron,
+    .container-fluid .jumbotron {
         padding: 100px 60px 100px 340px;
         text-align: center;
     }
 
     .nav {
-	font-size: 16px;
+        font-size: 16px;
     }
-    
+
     .navbar-header img {
         margin: 20px 0 30px 0;
     }
-    
-    .navbar-nav, .navbar-toggle {
+
+    .navbar-nav,
+    .navbar-toggle {
         margin-top: 71px;
     }
 
-    .nav > li > a {
-	padding: 10px 15px;
+    .nav>li>a {
+        padding: 10px 15px;
     }
-    
+
     .clients .client {
         margin-top: 1em;
     }
-    .clients .client ~ .client {
+
+    .clients .client~.client {
         margin-top: 1em;
     }
-    
+
     .blog .col-md-4 {
         border-right: 1px solid #E7E7E7;
     }
@@ -374,7 +391,7 @@ h2 {
     .blog .col-md-4:last-child {
         border-right: 0;
     }
-    
+
     .partner {
         background-size: 120%;
         background-position: right;
@@ -382,8 +399,7 @@ h2 {
     }
 }
 
-@media screen and (min-width: 1200px)
-{
+@media screen and (min-width: 1200px) {
     .pricing .circle {
         -webkit-text-size-adjust: 120%;
         -moz-text-size-adjust: 120%;
@@ -397,7 +413,7 @@ h2 {
     .pricing .circle p {
         font-size: 22px;
     }
-    
+
     .pricing .circle .vat {
         top: 9.5em;
         right: 6em;
@@ -424,7 +440,7 @@ h2 {
     margin-top: 25px;
     margin-bottom: -61px;
     color: #222;
-    
+
 }
 
 #phone a {
@@ -432,7 +448,7 @@ h2 {
     margin-right: 0px;
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
 
     #phone {
         font-size: 20px;
@@ -443,33 +459,72 @@ h2 {
     }
 }
 
-@media screen and (min-width: 992px){
+@media screen and (min-width: 992px) {
     #phone a {
         /* text-style: 900; */
         margin-right: 15px;
     }
 }
+
 /* table{
     color: #249bd7;
 } */
 
-.button{
+.button {
     position: absolute;
-    top:50%;
-    background-color:#0a0a23;
+    top: 50%;
+    background-color: #0a0a23;
     color: #fff;
-    border:none;
-    border-radius:10px;
-    box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
 
 }
+
 .button:hover {
-    background-color:#ad0000;
+    background-color: #ad0000;
     transition: 0.7s;
 }
 
 .button:focus {
     outline-color: transparent;
-    outline-style:solid;
+    outline-style: solid;
     box-shadow: 0 0 0 4px #5a01a7;
+}
+
+.app-store-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.app-store-button {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    color: #211010;
+    text-decoration: none;
+}
+
+.app-store-button:hover {
+    background-color: #19bd2e;
+    transition: 0.7s;
+}
+
+.app-store-button:active {
+    background-color: #ffbf00;
+}
+
+.google-play {
+    background-color: #27312a;
+
+    /* Green color */
+}
+
+.apple-app-store {
+    background-color: #2e3d32;
+    /* Black color */
 }
