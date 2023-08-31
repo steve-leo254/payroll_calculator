@@ -452,3 +452,24 @@ h2 {
 /* table{
     color: #249bd7;
 } */
+
+.button{
+    position: absolute;
+    top:50%;
+    background-color:#0a0a23;
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+
+}
+.button:hover {
+    background-color:#ad0000;
+    transition: 0.7s;
+}
+
+.button:focus {
+    outline-color: transparent;
+    outline-style:solid;
+    box-shadow: 0 0 0 4px #5a01a7;
+}
