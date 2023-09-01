@@ -56,7 +56,7 @@ function find_NHIF(gross_salary) {
 
 function find_NSSF(gross_salary, rate = 0.06) {
     nssf = 0;
-    if (gross_salary >=0 && gross_salary <= 18000) {
+    if (gross_salary >= 0 && gross_salary <= 18000) {
         nssf = gross_salary * rate;
     } else {
         nssf = 18000 * rate;
@@ -66,10 +66,10 @@ function find_NSSF(gross_salary, rate = 0.06) {
 
 function findNHDF(gross_salary, amount = 0.03) {
     // let nhdf = gross_salary * amount;
-    if(gross_salary <=83334 ){
+    if (gross_salary <= 83334) {
         nhdf = gross_salary * amount;
-    } else{
-        nhdf =2500;
+    } else {
+        nhdf = 2500;
     }
     return nhdf;
 }
@@ -95,11 +95,13 @@ function findPAYEE(taxable_income, personal_relief = 2400) {
     } else if (taxable_income <= 500000) {
         grosspayee = ((taxable_income - 32333) * 0.30) + 4483.25;
         netpayee = grosspayee - personal_relief;
-    } else if (taxable_income > 500000) {
-        grosspayee = ((taxable_income - 80000) * 0.35) + 4483.25;
-        netpayee = grosspayee - personal_relief;
-    } else {
-        netpayee = 0;
+    } else if (taxable_income <= 800000) {
+        grosspayee = (taxable_income - 500000) * 0.325 + 144783.35 + 2400
+        netpayee = grosspayee - personal_relief
+    }
+    else {
+        grosspayee = ((taxable_income - 800000) * 0.35) + 242283.35 + 2400
+        netpayee = grosspayee - personal_relief
     }
     return netpayee;
 }
