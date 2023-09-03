@@ -575,3 +575,10 @@ h2 {
         padding-left: calc(((100% - 1320px) / 2) + .75rem);
     }
 }
+
+/*** Feature ***/
+@media (min-width: 1400px) {
+   .charge-table{
+    padding-left: 10px;
+   }
+}
