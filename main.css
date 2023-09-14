@@ -2,6 +2,7 @@ body {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     color: #251010;
     margin-top: 141px;
+     
 }
 
 h1,
@@ -57,156 +58,6 @@ h2 {
     margin-bottom: 1em;
 }
 
-.navbar-default .navbar-nav>li>a,
-.navbar-default .navbar-nav>.active>a,
-.navbar-default .navbar-nav>.active>a:focus,
-.navbar-default .navbar-nav>.active>a:hover {
-    color: black;
-    font-weight: bold;
-}
-
-.navbar-default {
-    background-color: #FFF;
-}
-
-.container .jumbotron {
-    background-image: url('/image/site/payroll-management-in-minutes.jpg');
-    max-height: 594px;
-    text-align: right;
-    color: white;
-    border-radius: 0;
-    margin-bottom: 0.5em;
-}
-
-.jumbotron h1 {
-    color: white;
-    font-weight: normal;
-}
-
-.jumbotron .btn {
-    text-transform: uppercase;
-    font-size: 24px;
-    margin: 1em .5em;
-    padding: .5em .5em;
-}
-
-.jumbotron .btn:nth-child(1) {
-    width: 175px;
-}
-
-.jumbotron .btn:nth-child(2) {
-    width: 175px;
-}
-
-.blog {
-    padding: 1em 3em;
-}
-
-.blog img {
-    margin-bottom: .5em;
-}
-
-.blog h3 {
-    margin-bottom: .1em;
-}
-
-.blog h4 {
-    font-size: 14px;
-    font-style: italic;
-    margin-top: .1em;
-}
-
-.blog a {
-    color: #464646;
-}
-
-.circle h3,
-.blog h3,
-.orange,
-.orange:hover,
-.navbar-nav>li>a.orange {
-    color: #f19337;
-}
-
-.btn.orange {
-    background-color: #f19337;
-    color: white;
-    text-transform: uppercase;
-}
-
-.clients {
-    background-color: #f4932a;
-    padding: 40px 6em;
-}
-
-.clients>div>.row {
-    margin-top: 8em;
-    padding-bottom: 40px;
-}
-
-.clients hr {
-    margin: 1em 0;
-}
-
-.clients .row h3 {
-    text-transform: none;
-    margin-top: .5em;
-    margin-bottom: .1em;
-}
-
-.clients .client {
-    background-color: white;
-    padding: 0 2em 2em 2em;
-    margin-top: 1em;
-}
-
-.clients .client~.client {
-    margin-top: 9em;
-}
-
-.clients h1 {
-    color: white;
-}
-
-.clients .img-circle {
-    border: 1px solid #f4932a;
-    position: relative;
-    margin-top: -8em;
-}
-
-.pricing .circle {
-    position: relative;
-    border: 3px solid #249bd7;
-    border-radius: 10em;
-    height: 20em;
-    width: 20em;
-    padding-top: 3em;
-    margin: 2em auto;
-    box-shadow: inset 0px 0px 50px 10px rgba(162, 162, 162, 0.65);
-}
-
-.pricing .circle p {
-    font-size: 18px;
-}
-
-.pricing .circle .vat {
-    position: absolute;
-    right: 4.5em;
-    top: 7.5em;
-}
-
-.pricing .btn {
-    font-size: 18px;
-    padding: 10px 16px;
-}
-
-.circle hr {
-    border: 1px solid #f4932a;
-    color: #f4932a;
-    height: 0;
-    width: 15em;
-}
-
 .marking {
     color: #CCC;
 }
@@ -219,28 +70,6 @@ h2 {
     margin-top: 3em;
     margin-bottom: .3em;
     height: 130px;
-}
-
-.marketing h3 {
-    margin-bottom: 1em;
-    text-transform: initial;
-}
-
-
-.partner {
-    background-image: url('/image/site/partner_960.jpg');
-    background-position: right;
-    padding: 1.5em 2em;
-}
-
-.partner ul {
-    line-height: 2.5;
-}
-
-.partner .btn {
-    padding-left: 2em;
-    padding-right: 2em;
-    margin-left: 4em;
 }
 
 .footer {
@@ -269,61 +98,11 @@ h2 {
     color: white;
 }
 
-.bg-compliance {
-    margin: auto;
-    width: 120px;
-    height: 120px;
-    background: url('/image/site/Payroll-features.webp') -10px -160px;
-}
 
-.bg-error {
-    margin: auto;
-    width: 116px;
-    height: 116px;
-    background: url('/image/site/Payroll-features.webp') -347px -10px;
-}
 
-.bg-management {
-    margin: auto;
-    width: 146px;
-    height: 130px;
-    background: url('/image/site/Payroll-features.webp') -10px -10px;
-}
 
-.bg-portal {
-    margin: auto;
-    width: 68px;
-    height: 130px;
-    background: url('/image/site/Payroll-features.webp') -347px -146px;
-}
 
-.bg-submission {
-    margin: auto;
-    width: 116px;
-    height: 119px;
-    background: url('/image/site/Payroll-features.webp') -150px -160px;
-}
 
-.bg-support {
-    margin: auto;
-    width: 151px;
-    height: 124px;
-    background: url('/image/site/Payroll-features.webp') -176px -10px;
-}
-
-.bg-social_fb {
-    display: inline-block;
-    width: 69px;
-    height: 69px;
-    background: url('/image/site/Payroll-social.png') -101px -10px;
-}
-
-.bg-social_twitter {
-    display: inline-block;
-    width: 71px;
-    height: 71px;
-    background: url('/image/site/Payroll-social.png') -10px -10px;
-}
 
 @media screen and (min-width: 768px) {
 
@@ -582,23 +361,6 @@ h2 {
     padding-left: 10px;
    }
 }
-/* @media (min-width: 475px) {} */
-
-/* sm */
-/* @media (min-width: 640px) {} */
-
-/* md */
-/* @media (min-width: 768px) {} */
-
-/* lg */
-/* @media (min-width: 1024px) {} */
-
-/* xl */
-/* @media (min-width: 1280px) {} */
-
-/* 2xl */
-/* @media (min-width: 1536px) {} */
-
 
 @media (max-width: 1536px) {}
 
@@ -717,4 +479,19 @@ h2 {
   .container {
     width: 100%;
   }
+}
+.bottom-text-footer {
+    padding: 0px 12px;
+    /* background-image: url("https://as1.ftcdn.net/v2/jpg/05/00/23/38/1000_F_500233816_lmXEmmgJxKKQi6Dphq9hbam5W5jv0piD.jpg"); */
+    background-size: cover;
+    /* Adjusts the image size to cover the entire background */
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    margin-left: 48px;
+    margin-right: 0px;
+    /* Removes default body margin */
+    object-fit: cover;
+    background-color: rgb(133, 218, 133);
+    
 }
