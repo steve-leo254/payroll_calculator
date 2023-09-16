@@ -79,10 +79,7 @@ h2 {
     line-height: 1.8;
 }
 
-.footer .logo {
-    margin-left: -43px;
-    margin-bottom: 10px;
-}
+
 
 .footer .spacer {
     padding-top: 4.4em;
@@ -97,12 +94,6 @@ h2 {
     font-size: 1.1em;
     color: white;
 }
-
-
-
-
-
-
 
 @media screen and (min-width: 768px) {
 
@@ -178,41 +169,6 @@ h2 {
     }
 }
 
-@media screen and (min-width: 1200px) {
-    .pricing .circle {
-        -webkit-text-size-adjust: 120%;
-        -moz-text-size-adjust: 120%;
-        font-size-adjust: 120%;
-        padding-top: 4em;
-        border-radius: 12em;
-        height: 24em;
-        width: 24em;
-    }
-
-    .pricing .circle p {
-        font-size: 22px;
-    }
-
-    .pricing .circle .vat {
-        top: 9.5em;
-        right: 6em;
-    }
-
-    .pricing .circle h2 {
-        font-size: 38px;
-    }
-
-    .pricing .circle h3 {
-        font-size: 26px;
-    }
-
-    .partner {
-        background-image: url('/image/site/partner.jpg');
-        background-position: right;
-        padding: 8em 2em;
-    }
-}
-
 #phone {
     text-align: right;
     font-size: 20px;
@@ -226,28 +182,6 @@ h2 {
     /* text-style: 800; */
     margin-right: 0px;
 }
-
-@media screen and (min-width: 768px) {
-
-    #phone {
-        font-size: 20px;
-    }
-
-    #phone a {
-        margin-right: 10px;
-    }
-}
-
-@media screen and (min-width: 992px) {
-    #phone a {
-        /* text-style: 900; */
-        margin-right: 15px;
-    }
-}
-
-/* table{
-    color: #249bd7;
-} */
 
 .button {
     position: absolute;
@@ -495,3 +429,6 @@ h2 {
     background-color: rgb(133, 218, 133);
     
 }
+/* .subtle{
+    paddin
+} */
