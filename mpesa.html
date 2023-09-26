@@ -13,352 +13,359 @@
 </head>
 
 <body class="body-main">
-    <style>
-        body {
-            /* background-image: url("https://as1.ftcdn.net/v2/jpg/05/00/23/38/1000_F_500233816_lmXEmmgJxKKQi6Dphq9hbam5W5jv0piD.jpg"); */
-            background-size: cover;
-            /* Adjusts the image size to cover the entire background */
-            background-position: center;
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            /* Removes default body margin */
-            object-fit: cover;
-            background-color: rgb(133, 218, 133);
-        }
+    <div class="container">
+        <style>
+            body {
+                /* background-image: url("https://as1.ftcdn.net/v2/jpg/05/00/23/38/1000_F_500233816_lmXEmmgJxKKQi6Dphq9hbam5W5jv0piD.jpg"); */
+                background-size: cover;
+                /* Adjusts the image size to cover the entire background */
+                background-position: center;
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                /* Removes default body margin */
+                object-fit: cover;
+                background-color: rgb(133, 218, 133);
+            }
 
-        container-fluid {
-            background-color: aqua;
-        }
-    </style>
+            container-fluid {
+                background-color: aqua;
+            }
+        </style>
 
-    <div class="container-md">
-        <div id="phone-contact" class="subtle">
-            <a class="hidden-xs" href="tel:+254758510206"><img
-                    src="https://www.payroll.ke/image/site/call-payroll-support.png" width="20" height="35" /></a><a
-                href="tel:+254758510206">+254 758510206</a>
-        </div>
-
-
-        <div class="header-nav">
-
-            <a href="tel:+254758510206"><img
-                    src="https://seeklogo.com/images/S/safaricom-twaweza-logo-A1C3B7B4B1-seeklogo.com.png"
-                    alt="Safaricom_Logo logo" width="168" height="90"></a>
+        <div class="container-md">
+            <div id="phone-contact" class="subtle">
+                <a class="hidden-xs" href="tel:+254758510206"><img
+                        src="https://www.payroll.ke/image/site/call-payroll-support.png" width="20" height="35" /></a><a
+                    href="tel:+254758510206">+254 758510206</a>
+            </div>
 
 
-        </div>
+            <div class="header-nav">
 
-        <section class="container-fluid">
-            <form class="mpesa-calculator-form">
-                <div class="col-md-12">
-                    <h1 class="header"> My-pesa Calculator </h1>
-                    <h4>Safaricom Mpesa transaction charges 2023 - send Money and withdrawals both ATM & Agent in kenya.
-                    </h4>
-                    <p>By Steve Leo.Updated on 28thAugust,2023 </p>
-                </div>
-                <div class="col-12">
-                    <label class="visually-hidden" for="inlineFormInputGroup">Username</label>
-                    <div class="input-group">
+                <a href="tel:+254758510206"><img
+                        src="https://seeklogo.com/images/S/safaricom-twaweza-logo-A1C3B7B4B1-seeklogo.com.png"
+                        alt="Safaricom_Logo logo" width="168" height="90"></a>
 
-                        <input type="number" class="form-control" id="mpesa_amount" placeholder="Ksh"
-                            style="width: 125px;">
+
+            </div>
+
+            <section class="container-fluid">
+                <form class="mpesa-calculator-form">
+                    <div class="col-md-12">
+                        <h1 class="header"> My-pesa Calculator </h1>
+                        <h4>Safaricom Mpesa transaction charges 2023 - send Money and withdrawals both ATM & Agent in
+                            kenya.
+                        </h4>
+                        <p>By Steve Leo.Updated on 28thAugust,2023 </p>
                     </div>
-
                     <div class="col-12">
-                        <button type="button" id="calculateButton" class="btn btn-primary mt-4"
-                            onclick="calculate()">Calculate</button>
+                        <label class="visually-hidden" for="inlineFormInputGroup">Username</label>
+                        <div class="input-group">
+
+                            <input type="number" class="form-control" id="mpesa_amount" placeholder="Ksh"
+                                style="width: 125px;">
+                        </div>
+
+                        <div class="col-12">
+                            <button type="button" id="calculateButton" class="btn btn-primary mt-4"
+                                onclick="calculate()">Calculate</button>
+                        </div>
+                        <div class="col-md-8">
+                            <table class="table table-bordered mt-4">
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>Results</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>Transfer To M-PESA Users</td>
+                                        <td><span id="displayTransferToUsers"></span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Transfer To other Registered Mobile Money Users</td>
+                                        <td><span id="displayTransferToRegistered"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Send to other Unregistered</td>
+                                        <td><span id="displayTransferToUnregistered"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Withdraw at M-pesa Agent</td>
+                                        <td><span id="displayWithdrawalFromAgents"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ATM Withdraw</td>
+                                        <td><span id="displayATMWithdrawalTariff"></span></td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
                     </div>
-                    <div class="col-md-8">
-                        <table class="table table-bordered mt-4">
-                            <thead>
-                                <tr>
-                                    <th>Description</th>
-                                    <th>Results</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                </form>
+            </section><br>
+        </div>
 
-                                <tr>
-                                    <td>Transfer To M-PESA Users</td>
-                                    <td><span id="displayTransferToUsers"></span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Transfer To other Registered Mobile Money Users</td>
-                                    <td><span id="displayTransferToRegistered"></span></td>
-                                </tr>
-                                <tr>
-                                    <td>Send to other Unregistered</td>
-                                    <td><span id="displayTransferToUnregistered"></span></td>
-                                </tr>
-                                <tr>
-                                    <td>Withdraw at M-pesa Agent</td>
-                                    <td><span id="displayWithdrawalFromAgents"></span></td>
-                                </tr>
-                                <tr>
-                                    <td>ATM Withdraw</td>
-                                    <td><span id="displayATMWithdrawalTariff"></span></td>
-                                </tr>
-
-                                
-                            </tbody>
-                        </table>
-                    </div>
+        <hr>
+        <div class="vertical"></div>
+        <hr class="hr1">
 
 
-                </div>
-            </form>
+        <section>
+            <br>
+
+            <div class="container">
+                <h3>M-PESA Charges</h3>
+                <p>These are charges that a customer incurs depending on the amount of transaction and the transaction
+                    type
+                    i.e. sending or withdrawing from an Agent.
+                </p>
+                <p>Below are Mpesa Tarriffs</p>
+                <table class="charge-table">
+                    <tr>
+                        <th>Min</th>
+                        <th>Max</th>
+                        <th>Send To M-PESA/POCHI</th>
+                        <th>Send To Other Networks</th>
+                        <th>Send To Unregistered</th>
+                        <th>Withdraw at Agent</th>
+                    </tr>
+                    <tr>
+                        <td>Ksh1</td>
+                        <td>Ksh49</td>
+                        <td>FREE</td>
+                        <td>FREE</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Ksh50</td>
+                        <td>Ksh100</td>
+                        <td>FREE</td>
+                        <td>FREE</td>
+                        <td>N/A</td>
+                        <td>11</td>
+                    </tr>
+                    <tr>
+                        <td>Ksh101</td>
+                        <td>Ksh500</td>
+                        <td>7</td>
+                        <td>7</td>
+                        <td>47</td>
+                        <td>29</td>
+                    </tr>
+                    <tr>
+                        <td>Ksh501</td>
+                        <td>Ksh1,000</td>
+                        <td>13</td>
+                        <td>13</td>
+                        <td>51</td>
+                        <td>29</td>
+                    </tr>
+                    <tr>
+                        <td>Ksh1,001</td>
+                        <td>Ksh1,500</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>61</td>
+                        <td>29</td>
+                    </tr>
+                    <tr>
+                        <td>Ksh1,501</td>
+                        <td>Ksh2,500</td>
+                        <td>33</td>
+                        <td>33</td>
+                        <td>76</td>
+                        <td>29</td>
+                    </tr>
+                    <tr>
+                        <td>Ksh2,501</td>
+                        <td>Ksh3,500</td>
+                        <td>53</td>
+                        <td>53</td>
+                        <td>115</td>
+                        <td>52</td>
+                    </tr>
+                    <tr>
+                        <td>Ksh35,001</td>
+                        <td>Ksh5,000</td>
+                        <td>57</td>
+                        <td>57</td>
+                        <td>139</td>
+                        <td>69</td>
+                    </tr>
+                    <tr>
+                        <td>Ksh5,001</td>
+                        <td>Ksh7,500</td>
+                        <td>78</td>
+                        <td>78</td>
+                        <td>171</td>
+                        <td>87</td>
+                    </tr>
+                    <tr>
+                        <td>Ksh7,501</td>
+                        <td>Ksh10,000</td>
+                        <td>90</td>
+                        <td>90</td>
+                        <td>211</td>
+                        <td>115</td>
+                    </tr>
+                    <tr>
+                        <td>Ksh10,001</td>
+                        <td>Ksh15,000</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>273</td>
+                        <td>167</td>
+                    </tr>
+                    <tr>
+                        <td>Ksh15,001</td>
+                        <td>Ksh20,000</td>
+                        <td>105</td>
+                        <td>105</td>
+                        <td>296</td>
+                        <td>185</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ksh20,001</td>
+                        <td>Ksh35,000</td>
+                        <td>108</td>
+                        <td>108</td>
+                        <td>318</td>
+                        <td>197</td>
+                    </tr>
+                    <tr>
+                        <td>Ksh35,001</td>
+                        <td>Ksh50,000</td>
+                        <td>108</td>
+                        <td>108</td>
+                        <td>318</td>
+                        <td>278</td>
+                    </tr>
+                    <tr>
+                        <td>Ksh50,001</td>
+                        <td>Ksh150,000</td>
+                        <td>108</td>
+                        <td>108</td>
+                        <td>318</td>
+                        <td>309</td>
+                    </tr>
+                </table>
         </section><br>
-    </div>
+        <hr>
+        <div class="vertical"></div>
+        <hr class="hr1">
+        <section class="container">
 
-    <hr>
-    <div class="vertical"></div>
-    <hr class="hr1">
-
-
-    <section>
-        <br>
-
-        <div class="container">
-            <h3>M-PESA Charges</h3>
-            <p>These are charges that a customer incurs depending on the amount of transaction and the transaction type
-                i.e. sending or withdrawing from an Agent.
-            </p>
-            <p>Below are Mpesa Tarriffs</p>
-            <table class="charge-table">
+            <table class="table-row" style="width: 50%;height: 70%;" <caption>ATM Withdrawal Tariff
+                </caption>
                 <tr>
                     <th>Min</th>
                     <th>Max</th>
-                    <th>Send To M-PESA/POCHI</th>
-                    <th>Send To Other Networks</th>
-                    <th>Send To Unregistered</th>
-                    <th>Withdraw at Agent</th>
+                    <th>New</th>
                 </tr>
                 <tr>
-                    <td>Ksh1</td>
-                    <td>Ksh49</td>
-                    <td>FREE</td>
-                    <td>FREE</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
+                    <td>200</td>
+                    <td>2,500</td>
+                    <td>35</td>
                 </tr>
                 <tr>
-                    <td>Ksh50</td>
-                    <td>Ksh100</td>
-                    <td>FREE</td>
-                    <td>FREE</td>
-                    <td>N/A</td>
-                    <td>11</td>
-                </tr>
-                <tr>
-                    <td>Ksh101</td>
-                    <td>Ksh500</td>
-                    <td>7</td>
-                    <td>7</td>
-                    <td>47</td>
-                    <td>29</td>
-                </tr>
-                <tr>
-                    <td>Ksh501</td>
-                    <td>Ksh1,000</td>
-                    <td>13</td>
-                    <td>13</td>
-                    <td>51</td>
-                    <td>29</td>
-                </tr>
-                <tr>
-                    <td>Ksh1,001</td>
-                    <td>Ksh1,500</td>
-                    <td>23</td>
-                    <td>23</td>
-                    <td>61</td>
-                    <td>29</td>
-                </tr>
-                <tr>
-                    <td>Ksh1,501</td>
-                    <td>Ksh2,500</td>
-                    <td>33</td>
-                    <td>33</td>
-                    <td>76</td>
-                    <td>29</td>
-                </tr>
-                <tr>
-                    <td>Ksh2,501</td>
-                    <td>Ksh3,500</td>
-                    <td>53</td>
-                    <td>53</td>
-                    <td>115</td>
-                    <td>52</td>
-                </tr>
-                <tr>
-                    <td>Ksh35,001</td>
-                    <td>Ksh5,000</td>
-                    <td>57</td>
-                    <td>57</td>
-                    <td>139</td>
+                    <td>2,501</td>
+                    <td>5,000</td>
                     <td>69</td>
                 </tr>
                 <tr>
-                    <td>Ksh5,001</td>
-                    <td>Ksh7,500</td>
-                    <td>78</td>
-                    <td>78</td>
-                    <td>171</td>
-                    <td>87</td>
-                </tr>
-                <tr>
-                    <td>Ksh7,501</td>
-                    <td>Ksh10,000</td>
-                    <td>90</td>
-                    <td>90</td>
-                    <td>211</td>
+                    <td>5,001</td>
+                    <td>10,000</td>
                     <td>115</td>
                 </tr>
                 <tr>
-                    <td>Ksh10,001</td>
-                    <td>Ksh15,000</td>
-                    <td>100</td>
-                    <td>100</td>
-                    <td>273</td>
-                    <td>167</td>
+                    <td>10,001</td>
+                    <td>35,000</td>
+                    <td>203</td>
+                </tr>
+            </table><br>
+            <table class="other-transactions-table" style="align-items: center;width: 50%;height: 70%;">
+                <tr>
+                    <th>OTHER TRANSACTIONS</th>
+                    <th>KSHs</th>
                 </tr>
                 <tr>
-                    <td>Ksh15,001</td>
-                    <td>Ksh20,000</td>
-                    <td>105</td>
-                    <td>105</td>
-                    <td>296</td>
-                    <td>185</td>
-                </tr>
-
-                <tr>
-                    <td>Ksh20,001</td>
-                    <td>Ksh35,000</td>
-                    <td>108</td>
-                    <td>108</td>
-                    <td>318</td>
-                    <td>197</td>
+                    <td>All Deposits</td>
+                    <td>FREE</td>
                 </tr>
                 <tr>
-                    <td>Ksh35,001</td>
-                    <td>Ksh50,000</td>
-                    <td>108</td>
-                    <td>108</td>
-                    <td>318</td>
-                    <td>278</td>
+                    <td>M-PESA Registration</td>
+                    <td>FREE</td>
                 </tr>
                 <tr>
-                    <td>Ksh50,001</td>
-                    <td>Ksh150,000</td>
-                    <td>108</td>
-                    <td>108</td>
-                    <td>318</td>
-                    <td>309</td>
+                    <td>Buying Airtime Though M-PESA</td>
+                    <td>FREE</td>
+                </tr>
+                <tr>
+                    <td>M-PESA Balance Enquiry</td>
+                    <td>FREE</td>
+                </tr>
+                <tr>
+                    <td>Change M-PESA PIN</td>
+                    <td>FREE</td>
                 </tr>
             </table>
-    </section><br>
-    <hr>
-    <div class="vertical"></div>
-    <hr class="hr1">
-    <section class="container">
 
-        <table class="table-row" style="width: 50%;height: 70%;" <caption>ATM Withdrawal Tariff
-            </caption>
-            <tr>
-                <th>Min</th>
-                <th>Max</th>
-                <th>New</th>
-            </tr>
-            <tr>
-                <td>200</td>
-                <td>2,500</td>
-                <td>35</td>
-            </tr>
-            <tr>
-                <td>2,501</td>
-                <td>5,000</td>
-                <td>69</td>
-            </tr>
-            <tr>
-                <td>5,001</td>
-                <td>10,000</td>
-                <td>115</td>
-            </tr>
-            <tr>
-                <td>10,001</td>
-                <td>35,000</td>
-                <td>203</td>
-            </tr>
-        </table><br>
-        <table class="other-transactions-table" style="align-items: center;width: 50%;height: 70%;">
-            <tr>
-                <th>OTHER TRANSACTIONS</th>
-                <th>KSHs</th>
-            </tr>
-            <tr>
-                <td>All Deposits</td>
-                <td>FREE</td>
-            </tr>
-            <tr>
-                <td>M-PESA Registration</td>
-                <td>FREE</td>
-            </tr>
-            <tr>
-                <td>Buying Airtime Though M-PESA</td>
-                <td>FREE</td>
-            </tr>
-            <tr>
-                <td>M-PESA Balance Enquiry</td>
-                <td>FREE</td>
-            </tr>
-            <tr>
-                <td>Change M-PESA PIN</td>
-                <td>FREE</td>
-            </tr>
-        </table>
+        </section>
+        <hr>
+        <div class="vertical"></div>
+        <hr class="hr1">
+        <section class="bottom-text-footer">
+            <div>
+                <h1>Note:</h1>
+                <li>1.Maximum Account Balance is <strong>Kshs.500,000</strong></li>
+                <li>2.Maximum daily transaction value is <strong>Kshs.500,000</strong></li>
+                <li>3.Maximum amount per transaction is <strong>Kshs.150,000</strong></li>
+                <li>4.The minimum amount you can withdraw at an M-PESA Agent is <strong>Kshs.50</strong></li>
+                <li>5.The Maximum amount you can withdraw at an M-PESA Agent is <strong>Kshs.35,000.</strong></li>
+                <li>6.To initiate M-PESA person to person self-reversal, send the transaction confirmation to
+                    <strong>456..</strong>to
+                    initiate M-pesa person to person self reversal.
+                </li>
+                <li>7.To be able to transact, your Safaricom line and M-PESA account must be active.</li>
+                <li>8.One can deposit funds only into M-PESA account registered under their own identification document
+                    <strong>(ID)</strong>.
+                    Depositing directly into third party accounts is not allowed.
+                </li>
+                <li>9.You will earn Bonga Points from the M-PESA fee charged when you transact.</li>
+                <li>10.To transact at any M-PESA agent outlet,you will be required to produce your original
+                    identification
+                    document with which the M-PESA was registered<br> i.e., National <strong>ID</strong> or Kenyan
+                    Passport
+                </li>
+                <li>11.Dial <strong>*334#</strong> to view application charges or use M-PESA cost calculator on My
+                    Safaricom
+                    App
+                </li>
+                <li>12.<strong>Y</strong>ou cannot send any amount below <strong>100</strong>bob to Unregistered
+                    Safaricom
+                    users
+                </li>
+                <li>13.Dial <strong>*234#</strong> to view M-pesa tarriffs</li>
+            </div>
+        </section>
+        <div class="vertical"></div>
+        <hr class="hr1">
 
-    </section>
-    <hr>
-    <div class="vertical"></div>
-    <hr class="hr1">
-    <section class="bottom-text-footer">
-        <div>
-            <h1>Note:</h1>
-            <li>1.Maximum Account Balance is <strong>Kshs.500,000</strong></li>
-            <li>2.Maximum daily transaction value is <strong>Kshs.500,000</strong></li>
-            <li>3.Maximum amount per transaction is <strong>Kshs.150,000</strong></li>
-            <li>4.The minimum amount you can withdraw at an M-PESA Agent is <strong>Kshs.50</strong></li>
-            <li>5.The Maximum amount you can withdraw at an M-PESA Agent is <strong>Kshs.35,000.</strong></li>
-            <li>6.To initiate M-PESA person to person self-reversal, send the transaction confirmation to
-                <strong>456..</strong>to
-                initiate M-pesa person to person self reversal.
-            </li>
-            <li>7.To be able to transact, your Safaricom line and M-PESA account must be active.</li>
-            <li>8.One can deposit funds only into M-PESA account registered under their own identification document
-                <strong>(ID)</strong>.
-                Depositing directly into third party accounts is not allowed.
-            </li>
-            <li>9.You will earn Bonga Points from the M-PESA fee charged when you transact.</li>
-            <li>10.To transact at any M-PESA agent outlet,you will be required to produce your original identification
-                document with which the M-PESA was registered<br> i.e., National <strong>ID</strong> or Kenyan Passport
-            </li>
-            <li>11.Dial <strong>*334#</strong> to view application charges or use M-PESA cost calculator on My Safaricom
-                App
-            </li>
-            <li>12.<strong>Y</strong>ou cannot send any amount below <strong>100</strong>bob to Unregistered Safaricom
-                users
-            </li>
-            <li>13.Dial <strong>*234#</strong> to view M-pesa tarriffs</li>
-        </div>
-    </section>
-    <div class="vertical"></div>
-    <hr class="hr1">
+        <style>
 
-    <style>
+        </style>
 
-    </style>
-    <div class="container-fluid">
         <section class="footer" style="background-color: chartreuse; width: auto;">
             <div class="app-store-buttons">
                 <a class="app-store-button google-play"
